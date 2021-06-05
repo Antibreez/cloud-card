@@ -1,0 +1,166 @@
+.device-details {
+  padding-bottom: 75px;
+
+  &__tabs {
+    background-color: #f5f5f5;
+  }
+
+  &__tab {
+    @include btn-reset;
+    @include font(16px, 18px);
+    color: $text-minor;
+    padding: 15px 15px 14px;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.active {
+      color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  &__content {
+    max-width: 770px;
+    padding-top: 50px;
+  }
+
+  &__desc-title {
+    @include font(24px, 29px, 500);
+    color: $text-main;
+    margin: 0 0 24px;
+  }
+
+  &__stages {
+    margin: 0;
+    padding: 0;
+    max-width: 610px;
+    counter-reset: stages-list;
+    margin: 0 0 48px;
+  }
+
+  &__stages-item {
+    @include font(16px, 23px);
+    color: $text-minor;
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    &::before {
+      @include font(15px, 18px);
+      content: counter(stages-list);
+      counter-increment: stages-list;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: $primary;
+      flex-shrink: 0;
+      color: #fff;
+      margin-right: 15px;
+    }
+  }
+
+  &__subtitle {
+    @include font(18px, 22px, 500);
+    margin: 0 0 24px;
+  }
+
+  &__equipment {
+    margin: 0 0 48px;
+  }
+
+  &__equipment-list {
+    margin: 0;
+    padding: 0;
+    max-width: 610px;
+  }
+
+  &__equipment-item {
+    @include font(16px, 23px);
+    color: $text-minor;
+    padding-left: 23px;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $primary;
+    }
+  }
+
+  &__consist {
+    margin: 0 0 32px;
+  }
+
+  &__consist-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__consist-item {
+    @include font(14px, 22px);
+    color: $text-minor;
+    padding: 24px 153px 24px 24px;
+    border-radius: 10px;
+    border: 1px solid $bg-hover;
+    width: calc((100% - 16px) / 2);
+    margin-bottom: 16px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right -15px center;
+
+    &--app {
+      background-image: url("../img/app-control.jpg");
+    }
+
+    &--diagnostics {
+      background-image: url("../img/diagnostics.jpg");
+    }
+
+    &--support {
+      background-image: url("../img/support.jpg");
+    }
+
+    &--warranty {
+      background-image: url("../img/warranty.jpg");
+    }
+
+    &--account {
+      background-image: url("../img/account.jpg");
+      background-position: right -50px center;
+    }
+
+    &--alert {
+      background-image: url("../img/alert-bg.jpg");
+      background-position: right -50px center;
+    }
+  }
+
+  &__payment-desc {
+    @include font(16px, 23px);
+    color: $text-minor;
+
+    .link {
+      font-weight: 400;
+    }
+  }
+}

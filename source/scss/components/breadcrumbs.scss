@@ -1,5 +1,25 @@
 .breadcrumbs {
-  margin-bottom: 40px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 23px;
+    z-index: 10;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  }
 
   .swiper-slide {
     width: min-content;
@@ -47,6 +67,9 @@
 
 @include mobile {
   .breadcrumbs {
-    margin-bottom: 22px;
+    &::before,
+    &::after {
+      width: 15px;
+    }
   }
 }

@@ -32,13 +32,6 @@ body {
 
 main {
   flex-grow: 1;
-  padding-top: 124px;
-  padding-bottom: 100px;
-
-  @include mobile {
-    padding-top: 108px;
-    padding-bottom: 40px;
-  }
 }
 
 img {
@@ -69,11 +62,11 @@ input::-ms-clear {
   display: none;
 }
 
-input:-moz-focusring {
-  outline: none;
-  border-color: #00adef;
-  box-shadow: none;
-}
+// input:-moz-focusring {
+//   outline: none;
+//   border-color: #00adef;
+//   box-shadow: none;
+// }
 
 input:invalid {
   outline: none;
@@ -103,22 +96,20 @@ a {
   // @include desktop {
   //   padding-left: 30px;
   //   padding-right: 30px;
-  // }
+  //}
 
-  // @include tablet {
-  //   padding-left: 15px;
-  //   padding-right: 15px;
-  // }
+  @include tablet {
+    max-width: $width-tablet;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 
   @include mobile {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
-* {
-  outline: none;
-}
 
 .overflow-3lines {
   overflow: hidden;

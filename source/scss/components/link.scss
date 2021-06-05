@@ -1,0 +1,10 @@
+.link {
+  @include font(15px, 18px, 500);
+  color: $primary;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}

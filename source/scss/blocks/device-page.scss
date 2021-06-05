@@ -1,0 +1,42 @@
+.device-page {
+  &__title {
+    @include font(30px, 36px, 500);
+    color: $text-main;
+    margin: 0 0 50px;
+  }
+
+  &__info-block {
+    display: flex;
+    padding-bottom: 75px;
+  }
+
+  &__gallery {
+    margin-right: auto;
+  }
+
+  &__chars {
+    display: flex;
+    width: 770px;
+    justify-content: space-between;
+  }
+}
+
+@include tablet {
+  .device-page {
+    &__title {
+      span {
+        display: block;
+      }
+    }
+
+    &__info-block {
+      flex-direction: column;
+    }
+
+    &__chars {
+      margin-bottom: 50px;
+      width: 100%;
+      max-width:  708px;
+    }
+  }
+}

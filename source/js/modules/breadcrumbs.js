@@ -3,6 +3,7 @@
     const swiper = new Swiper('.breadcrumbs__container', {
       freeMode: true,
       slidesPerView: 'auto',
+      watchOverflow: true,
       breakpoints: {
 
         1280: {
