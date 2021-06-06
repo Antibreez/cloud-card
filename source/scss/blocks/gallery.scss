@@ -26,6 +26,7 @@
     height: 50px;
     border: 1px solid transparent;
     box-sizing: border-box;
+    outline: none;
 
     &.active {
       border-color: $primary;
