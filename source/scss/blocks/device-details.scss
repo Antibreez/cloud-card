@@ -152,6 +152,7 @@
     &--alert {
       background-image: url("../img/alert-bg.jpg");
       background-position: right -50px center;
+      background-color: #f5f5f5;
     }
   }
 
@@ -161,6 +162,38 @@
 
     .link {
       font-weight: 400;
+    }
+  }
+}
+
+@include mobile {
+  .device-details {
+    &__desc-title {
+      @include font(18px, 22px, 500);
+    }
+
+    &__subtitle {
+      @include font(16px, 19px, 500);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .device-details {
+    &__consist-list {
+      flex-direction: column;
+    }
+
+    &__consist-item {
+      width: 100%;
+      max-width: 350px;
+      min-height: 136px;
+      padding-right: 68px;
+      background-position: right -90px center;
+
+      &--alert {
+        background-position: right -80px center;
+      }
     }
   }
 }

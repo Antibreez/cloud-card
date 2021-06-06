@@ -1,13 +1,24 @@
 (function() {
   const swiper = new Swiper('.gallery__slider-container', {
-    slidesPerView: 3.5,
-    spaceBetween: 15,
-    navigation: {
-      nextEl: '.gallery__slider-next',
-      prevEl: '.gallery__slider-prev',
+    slidesPerView: 1,
+    pagination: {
+      el: '.gallery__slider-pagination',
+      dynamicBullets: true,
     },
 
     breakpoints: {
+      768: {
+        slidesPerView: 3.5,
+        spaceBetween: 15,
+        navigation: {
+          nextEl: '.gallery__slider-next',
+          prevEl: '.gallery__slider-prev',
+        },
+        pagination: {
+          el: null
+        }
+      },
+
       1280: {
         slidesPerView: 4,
         spaceBetween: 15,
@@ -15,7 +26,10 @@
           nextEl: '.gallery__slider-next',
           prevEl: '.gallery__slider-prev',
         },
-      }
+        pagination: {
+          el: null
+        }
+      },
     }
   });
 

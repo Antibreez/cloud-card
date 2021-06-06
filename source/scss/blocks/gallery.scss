@@ -82,3 +82,48 @@
     }
   }
 }
+
+@include mobile {
+  .gallery {
+    width: 100%;
+    margin-bottom: 36px;
+
+    &__big-img {
+      display: none;
+    }
+
+    &__slider {
+      position: relative;
+    }
+
+    &__slider-prev,
+    &__slider-next {
+      display: none;
+    }
+
+    &__slider-container {
+      margin: 0;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      height: calc(100vw - 30px);
+
+      &.active {
+        border-color: transparent;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: $primary;
+      opacity: 1;
+    }
+
+    &__slider-pagination {
+      bottom: 0;
+      width: 100px;
+    }
+  }
+}
