@@ -108,9 +108,10 @@
 
     .swiper-slide {
       height: calc(100vw - 30px);
+      border: none;
 
       &.active {
-        border-color: transparent;
+        border: none;
       }
     }
 

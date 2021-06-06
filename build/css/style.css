@@ -5463,9 +5463,10 @@ div.input-file__file-load {
   }
   .gallery .swiper-slide {
     height: calc(100vw - 30px);
+    border: none;
   }
   .gallery .swiper-slide.active {
-    border-color: transparent;
+    border: none;
   }
   .gallery .swiper-pagination-bullet {
     width: 12px;
