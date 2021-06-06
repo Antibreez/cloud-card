@@ -6050,6 +6050,10 @@ div.input-file__file-load {
     padding-right: 68px;
     background-position: right -90px center;
   }
+  .device-details__consist-item span {
+    display: inline-block;
+    max-width: 180px;
+  }
   .device-details__consist-item--alert {
     background-position: right -80px center;
   }
