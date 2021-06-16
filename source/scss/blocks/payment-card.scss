@@ -7,9 +7,15 @@
   border-radius: 5px;
 
   &__title {
-    @include font(12px, 19px);
-    color: $text-minor;
+    @include font(12px, 19px, 500);
+    color: $text-main;
     margin: 0 0 4px;
+  }
+
+  &__subtitle {
+    @include font(12px, 16px);
+    color: $text-minor;
+    margin: 0 0 5px;
   }
 
   &__sum-block {
@@ -28,6 +34,17 @@
     }
   }
 
+  &__sum-devide {
+    @include font(12px, 15px);
+    color: #fb0000;
+    margin: 0 16px 0 20px;
+  }
+
+  &__sum-item-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   &__current-sum {
     @include font(31px, 37px, 500);
     color: $text-main;
@@ -35,7 +52,7 @@
   }
 
   &__year-sum {
-    @include font(16px, 20px, 500);
+    @include font(14px, 18px, 500);
     color: $text-main;
     margin: 0;
   }
@@ -101,13 +118,12 @@
 
     &__sum-block {
       display: flex;
-      align-items: flex-end;
       margin-bottom: 24px;
 
       .payment-card__status {
         display: block;
         margin-left: auto;
-        align-self: center;
+        margin-left: 48px;
       }
     }
 
@@ -131,6 +147,14 @@
       margin-right: 12px;
     }
 
+    &__desc-text {
+      width: calc(100% - 34px);
+    }
+
+    &__desc-link {
+      margin-left: 34px;
+    }
+
     &__status {
       display: none;
     }
@@ -141,5 +165,22 @@
   .payment-card {
     padding: 24px;
     width: 100%;
+
+    &__sum-item-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__sum-devide {
+      margin: 8px 0;
+    }
+
+    &__sum-item {
+      &:last-child {
+        .payment-card__title {
+          margin-bottom: 8px;
+        }
+      }
+    }
   }
 }

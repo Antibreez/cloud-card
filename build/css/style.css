@@ -4120,7 +4120,7 @@ input.search.js-inputed {
   display: block;
   width: 24px;
   height: 24px;
-  margin-right: 14px;
+  margin-right: 10px;
   border-radius: 4px;
   background-color: #f6f6f6;
   -webkit-transition: all 0.3s;
@@ -5148,55 +5148,186 @@ div.input-file__file-load {
 }
 
 .tooltip {
-  font-size: 12px;
-  line-height: 15px;
-  font-weight: 400;
   position: absolute;
-  top: -5px;
-  left: 50%;
-  display: block;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
+  left: 0;
+  top: auto;
+  bottom: calc(100% + 14px);
+  width: 280px;
+  padding: 16px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
-  color: #fff;
-  text-align: center;
-  width: 188px;
-  -webkit-transform: translate(-50%, calc(-100% - 11px));
-          transform: translate(-50%, calc(-100% - 11px));
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity 0.3s, visibility 0s ease 0.3s;
   transition: opacity 0.3s, visibility 0s ease 0.3s;
+  z-index: 150;
+}
+
+.tooltip.js-show {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.tooltip__title {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 8px;
+  padding-right: 30px;
+}
+
+.tooltip__close {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.tooltip__close:hover, .tooltip__close:active, .tooltip__close:focus {
+  background-color: transparent;
+}
+
+.tooltip__close svg {
+  height: 24px;
+  width: 24px;
+  color: #f6f6f6;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.tooltip__close:hover {
+  cursor: pointer;
+}
+
+.tooltip__close:hover svg {
+  color: #e5e5e5;
+}
+
+.tooltip__list {
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip__item {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  position: relative;
+  color: #707070;
+  padding-left: 23px;
+}
+
+.tooltip__item::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #5EA9FF;
+}
+
+.tooltip__item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.tooltip__blackout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s, visibility 0s ease 0.3s;
+  transition: opacity 0.3s, visibility 0s ease 0.3s;
+  display: none;
+}
+
+.tooltip__blackout.js-show {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
 }
 
 .tooltip::after {
   content: '';
   position: absolute;
-  left: 50%;
-  bottom: 1px;
-  width: 17px;
-  height: 11px;
-  background-image: url("../img/tail.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-transform: translate(-50%, 11px);
-          transform: translate(-50%, 11px);
+  left: 0;
+  bottom: -14px;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  border-right-width: 0;
+  border-left-width: 17px;
+  border-left-color: #fff;
 }
 
-.tooltip-trigger {
-  position: relative;
+.tooltip.bottom {
+  top: calc(100% + 14px);
+  bottom: auto;
 }
 
-.tooltip-trigger:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
+.tooltip.bottom::after {
+  bottom: auto;
+  top: -14px;
+}
+
+.tooltip.top {
+  top: auto;
+  bottom: calc(100% + 14px);
+}
+
+.tooltip.top::after {
+  bottom: -14px;
+  top: auto;
+}
+
+@media (max-width: 767px) {
+  .tooltip,
+  .tooltip.bottom,
+  .tooltip.top {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .tooltip__blackout,
+  .tooltip.bottom__blackout,
+  .tooltip.top__blackout {
+    display: block;
+  }
+  .tooltip::after,
+  .tooltip.bottom::after,
+  .tooltip.top::after {
+    display: none;
+  }
 }
 
 .link {
-  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
   line-height: 18px;
   font-weight: 500;
   color: #5EA9FF;
@@ -5205,8 +5336,13 @@ div.input-file__file-load {
   transition: color 0.3s;
 }
 
+.link:hover, .link:active, .link:focus {
+  background-color: transparent;
+}
+
 .link:hover {
   color: #3392FF;
+  cursor: pointer;
 }
 
 .header {
@@ -5223,6 +5359,14 @@ div.input-file__file-load {
 .device-page__title {
   font-size: 30px;
   line-height: 36px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 16px;
+}
+
+.device-page__desc {
+  font-size: 24px;
+  line-height: 29px;
   font-weight: 500;
   color: #1A1A1A;
   margin: 0 0 50px;
@@ -5276,14 +5420,21 @@ div.input-file__file-load {
     display: -ms-flexbox;
     display: flex;
     width: 100%;
+    margin: 0;
+  }
+  .device-page__desc {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 500;
     margin: 0 0 15px;
+    padding-right: 30px;
   }
   .device-page__title {
     width: calc(100% - 39px);
     font-size: 18px;
     line-height: 22px;
-    font-weight: 400;
-    margin: 0;
+    font-weight: 500;
+    margin: 0 0 15px;
   }
   .device-page__title span {
     overflow: hidden;
@@ -5674,9 +5825,17 @@ div.input-file__file-load {
 .payment-card__title {
   font-size: 12px;
   line-height: 19px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 4px;
+}
+
+.payment-card__subtitle {
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 400;
   color: #707070;
-  margin: 0 0 4px;
+  margin: 0 0 5px;
 }
 
 .payment-card__sum-block .payment-card__status {
@@ -5691,6 +5850,23 @@ div.input-file__file-load {
   margin: 0 0 21px;
 }
 
+.payment-card__sum-devide {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #fb0000;
+  margin: 0 16px 0 20px;
+}
+
+.payment-card__sum-item-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .payment-card__current-sum {
   font-size: 31px;
   line-height: 37px;
@@ -5700,8 +5876,8 @@ div.input-file__file-load {
 }
 
 .payment-card__year-sum {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 500;
   color: #1A1A1A;
   margin: 0;
@@ -5778,16 +5954,12 @@ div.input-file__file-load {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
     margin-bottom: 24px;
   }
   .payment-card__sum-block .payment-card__status {
     display: block;
     margin-left: auto;
-    -ms-flex-item-align: center;
-        align-self: center;
+    margin-left: 48px;
   }
   .payment-card__sum-item:first-of-type {
     margin: 0 36px 0 0;
@@ -5807,6 +5979,12 @@ div.input-file__file-load {
         flex-shrink: 0;
     margin-right: 12px;
   }
+  .payment-card__desc-text {
+    width: calc(100% - 34px);
+  }
+  .payment-card__desc-link {
+    margin-left: 34px;
+  }
   .payment-card__status {
     display: none;
   }
@@ -5816,6 +5994,21 @@ div.input-file__file-load {
   .payment-card {
     padding: 24px;
     width: 100%;
+  }
+  .payment-card__sum-item-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .payment-card__sum-devide {
+    margin: 8px 0;
+  }
+  .payment-card__sum-item:last-child .payment-card__title {
+    margin-bottom: 8px;
   }
 }
 
@@ -5870,7 +6063,7 @@ div.input-file__file-load {
 .device-details__stages {
   margin: 0;
   padding: 0;
-  max-width: 610px;
+  max-width: 730px;
   counter-reset: stages-list;
   margin: 0 0 48px;
 }
@@ -5977,7 +6170,7 @@ div.input-file__file-load {
   line-height: 22px;
   font-weight: 400;
   color: #707070;
-  padding: 24px 153px 24px 24px;
+  padding: 23px 152px 23px 23px;
   border-radius: 10px;
   border: 1px solid #eee;
   width: calc((100% - 16px) / 2);
@@ -5989,10 +6182,12 @@ div.input-file__file-load {
 
 .device-details__consist-item--app {
   background-image: url("../img/app-control.jpg");
+  background-position: right -50px center;
 }
 
 .device-details__consist-item--diagnostics {
   background-image: url("../img/diagnostics.jpg");
+  background-position: right -50px center;
 }
 
 .device-details__consist-item--support {
@@ -6001,6 +6196,7 @@ div.input-file__file-load {
 
 .device-details__consist-item--warranty {
   background-image: url("../img/warranty.jpg");
+  background-position: right -5px center;
 }
 
 .device-details__consist-item--account {
@@ -6009,9 +6205,20 @@ div.input-file__file-load {
 }
 
 .device-details__consist-item--alert {
+  padding-right: 140px;
   background-image: url("../img/alert-bg.jpg");
   background-position: right -50px center;
   background-color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+.device-details__about-block {
+  position: relative;
+  margin-top: 5px;
+}
+
+.device-details__about-btn {
+  line-height: 22px;
 }
 
 .device-details__payment-desc {
@@ -6019,10 +6226,78 @@ div.input-file__file-load {
   line-height: 23px;
   font-weight: 400;
   color: #707070;
+  margin: 0 0 24px;
 }
 
 .device-details__payment-desc .link {
   font-weight: 400;
+}
+
+.device-details__payment-card-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.device-details__payment-card {
+  width: calc((100% - 16px) / 2);
+  padding: 24px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.device-details__payment-card--1-year {
+  background-image: url("../img/1-year-bg.jpg");
+}
+
+.device-details__payment-card--unlimit {
+  background-image: url("../img/unlimit-bg.jpg");
+}
+
+.device-details__payment-card-title {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin: 0 0 16px;
+}
+
+.device-details__payment-card-desc {
+  font-size: 14px;
+  line-height: 23px;
+  font-weight: 400;
+  color: #707070;
+  margin: 0;
+}
+
+@media (max-width: 1279px) {
+  .device-details__consist-item {
+    padding-right: 142px;
+    background-position: right -90px center;
+  }
+  .device-details__consist-item--support {
+    background-position: right -60px center;
+  }
+  .device-details__consist-item--warranty {
+    background-position: right -60px center;
+  }
+  .device-details__consist-item--account {
+    background-position: right -70px center;
+  }
+  .device-details__consist-item--alert {
+    padding-right: 112px;
+    background-position: right -60px center;
+  }
+  .device-details__payment-card {
+    background-position: center;
+  }
 }
 
 @media (max-width: 767px) {
@@ -6035,6 +6310,23 @@ div.input-file__file-load {
     font-size: 16px;
     line-height: 19px;
     font-weight: 500;
+  }
+  .device-details__payment-card-block {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .device-details__payment-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 16px;
+  }
+  .device-details__payment-card:not(:last-child) {
+    margin-bottom: 16px;
   }
 }
 
@@ -6049,12 +6341,15 @@ div.input-file__file-load {
     width: 100%;
     max-width: 350px;
     min-height: 136px;
-    padding-right: 68px;
+    padding: 16px 68px 16px 16px;
     background-position: right -90px center;
   }
   .device-details__consist-item span {
     display: inline-block;
-    max-width: 180px;
+    max-width: 200px;
+  }
+  .device-details__consist-item--app {
+    background-position: right -100px center;
   }
   .device-details__consist-item--alert {
     background-position: right -80px center;

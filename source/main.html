@@ -48,6 +48,9 @@
             </button>
           </div>
         </div>
+        <p class="device-page__desc">
+          Управляется со смартфона, работает по&nbsp;подписке
+        </p>
         <div class="device-page__info-block">
           <div class="device-page__chars">
             <section class="device-page__gallery  gallery">
@@ -169,15 +172,27 @@
           </div>
           <section class="device-page__payment-card  payment-card">
             <div class="payment-card__sum-block">
-             <div class="payment-card__sum-item">
-                <p class="payment-card__title">К оплате сейчас</p>
-                <p class="payment-card__current-sum">7 999 руб.</p>
-             </div>
               <div class="payment-card__sum-item">
-                <p class="payment-card__title">Ежегодная подписка</p>
-                <p class="payment-card__year-sum">2 799 руб. / в год</p>
+                  <p class="payment-card__title">К оплате сейчас</p>
+                  <p class="payment-card__current-sum">7 999 руб.</p>
               </div>
-              <p class="payment-card__status in-stock">В наличии</p>
+              <div class="payment-card__sum-item">
+                <p class="payment-card__title">К оплате после установки</p>
+                <div class="payment-card__sum-item-wrapper">
+                  <div class="payment-card__sum-item-subitem">
+                    <p class="payment-card__subtitle">Ежегодная подписка</p>
+                    <p class="payment-card__year-sum">2 799 руб. / в год</p>
+                  </div>
+                  <div class="payment-card__sum-item-subitem">
+                    <p class="payment-card__sum-devide">или</p>
+                  </div>
+                  <div class="payment-card__sum-item-subitem">
+                    <p class="payment-card__subtitle">Бессрочный доступ</p>
+                    <a href="#" class="link">Подробнее</a>
+                  </div>
+                  <p class="payment-card__status in-stock">В наличии</p>
+                </div>
+              </div>
             </div>
             <div class="payment-card__desc">
               <span class="payment-card__desc-alert">
@@ -193,7 +208,7 @@
               <label class="checkbox__label">
                 <input class="checkbox__input visually-hidden"  type="checkbox" name="installation">
                 <div></div>
-                <p class="checkbox__text">Требуется монтаж</p>
+                <p class="checkbox__text">Потребуется монтаж</p>
               </label>
             </div>
             <button class="payment-card__to-cart  btn-primary">В корзину</button>
@@ -220,10 +235,10 @@
                     <span>Оплачиваете стоимость оборудования</span>
                   </li>
                   <li class="device-details__stages-item">
-                    <span>Устанавливаете кондиционер и&nbsp;подключаете к&nbsp;облачному сервису</span>
+                    <span>Устанавливаете кондиционер и&nbsp;подключаете его к&nbsp;облачному серверу через мобильное приложение</span>
                   </li>
                   <li class="device-details__stages-item">
-                    <span>Платите фиксированный ежегодный платёж или покупаете бессрочную подписку и&nbsp;получаете доступ к&nbsp;управлению кондиционером</spa>
+                    <span>Платите фиксированный ежегодный платёж или покупаете бессрочную подписку и&nbsp;получаете доступ к&nbsp;управлению кондиционером и к&nbsp;Облачному сервису Даичи</span>
                   </li>
                 </ol>
                 <div class="device-details__equipment">
@@ -253,11 +268,49 @@
                       <span>
                         Управление со смартфона или ПК с&nbsp;помощью приложения Daichi&nbsp;Comfort
                       </span>
+                      <div class="device-details__about-block">
+                        <button class="device-details__about-btn  link">Подробнее</button>
+                        <div class="device-details__about-tooltip  tooltip">
+                          <button class="tooltip__close" aria-label="Закрыть">
+                            <svg>
+                              <use xlink:href="img/sprite.svg#close"></use>
+                            </svg>
+                          </button>
+                          <h4 class="tooltip__title">
+                            Что даёт мобильное управление через приложение Daichi Comfort?
+                          </h4>
+                          <ul class="tooltip__list">
+                            <li class="tooltip__item">Управление через интернет из любой точки мира</li>
+                            <li class="tooltip__item">Персонализированные настройки и&nbsp;сценарии управления</li>
+                            <li class="tooltip__item">Установка таймера и&nbsp;составление расписаний</li>
+                            <li class="tooltip__item">Работа по геолокации</li>
+                            <li class="tooltip__item">Одно приложение для множества помещений</li>
+                            <li class="tooltip__item">Работает с&nbsp;голосовыми помощниками Алиса и&nbsp;Маруся</li>
+                          </ul>
+                        </div>
+                      </div>
                     </li>
                     <li class="device-details__consist-item  device-details__consist-item--diagnostics">
                       <span>
-                        Онлайн диагностика и&nbsp;мониторинг работы Облачного кондиционера
+                        24/7 онлайн диагностика и&nbsp;мониторинг работы Облачного кондиционера
                       </span>
+                      <div class="device-details__about-block">
+                        <button class="device-details__about-btn  link">Подробнее</button>
+                        <div class="device-details__about-tooltip  tooltip">
+                          <button class="tooltip__close" aria-label="Закрыть">
+                            <svg>
+                              <use xlink:href="img/sprite.svg#close"></use>
+                            </svg>
+                          </button>
+                          <h4 class="tooltip__title">
+                            Что такое онлайн-диагностика кондиционера&nbsp;24/7?
+                          </h4>
+                          <p class="tooltip__desc">
+                            Облачный кондиционер всегда подключен к&nbsp;онлайн-центру мониторинга и&nbsp;диагностики оборудования&nbsp;°D.<br>
+                            При возникновении ошибки оператор связывается с&nbsp;вами, объясняет, что произошло, и&nbsp;предлагает способы решения проблемы.
+                          </p>
+                        </div>
+                      </div>
                     </li>
                     <li class="device-details__consist-item  device-details__consist-item--support">
                       <span>
@@ -276,7 +329,7 @@
                     </li>
                     <li class="device-details__consist-item  device-details__consist-item--alert">
                       <span>
-                        Облачный кондиционер работает только при наличии подключения к&nbsp;Wi&#8209;Fi
+                        Облачный кондиционер работает только при наличии интернет-соединения через Wi&#8209;Fi и&nbsp;оплаченной подписке
                       </span>
                     </li>
                   </ul>
@@ -286,6 +339,29 @@
                   <p class="device-details__payment-desc">
                     Подписка на Облачный сервис Даичи оплачивается в&nbsp;Личном кабинете клиента на сайте <a href="https://lk.daichi.ru" class="link">lk.daichi.ru</a> после установки кондиционера.
                     <br><br>
+                    Для активации необходимо приобрести один из предложенных тарифов: «Подписка на&nbsp;1&nbsp;год‎» или «Бессрочный доступ».
+                  </p>
+
+                  <div class="device-details__payment-card-block">
+                    <div class="device-details__payment-card  device-details__payment-card--1-year">
+                      <h4 class="device-details__payment-card-title">Подписка на 1 год</h4>
+                      <p class="device-details__payment-card-desc">
+                        При оплате подписки по тарифу «Подписка на 1&nbsp;год‎» предоставляется доступ к&nbsp;управлению кондиционером на 365 дней с&nbsp;момента оплаты.
+                        <br><br>
+                        Через 365 дней необходимо снова оплатить подписку для продления доступа к&nbsp;управлению устройством.
+                      </p>
+                    </div>
+                    <div class="device-details__payment-card  device-details__payment-card--unlimit">
+                      <h4 class="device-details__payment-card-title">Бессрочный доступ</h4>
+                      <p class="device-details__payment-card-desc">
+                        При оплате подписки по тарифу «Бессрочный доступ» доступ к&nbsp;управлению предоставляется на весь срок жизненного цикла кондиционера.
+                        <br><br>
+                        Цена тарифа равна сумме 4&nbsp;ежегодных платежей, выплачиваемых единовременно.
+                      </p>
+                    </div>
+                  </div>
+
+                  <p class="device-details__payment-desc">
                     Подробная инструкция по подключению Облачного кондиционера и оплате подписки размещена на <a href="https://daichi.cloud/cloud-install" class="link">daichi.cloud/cloud-install</a>, QR&#8209;код со ссылкой на инструкцию расположен на торце Облачного кондиционера.
                   </p>
                 </div>
@@ -294,6 +370,8 @@
           </div>
         </section>
       </div>
+
+      <div class="tooltip__blackout"></div>
     </main>
 
     <script src="js/vendor.min.js"></script>
