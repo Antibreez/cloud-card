@@ -165,6 +165,7 @@
   $('.tooltip__blackout').on('click', function () {
     $(this).removeClass('js-show');
     $('.tooltip.js-show').removeClass('js-show');
+    $('body').removeClass('js__body-no-scroll-mobile');
   });
   $(window).on('scroll', function () {
     setTooltipPosition();
