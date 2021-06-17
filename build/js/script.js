@@ -85,10 +85,25 @@
 })();
 
 (function () {
+  var $linkPayment = $('.payment-card__payment-about');
+  var $linkAbout = $('.payment-card__desc-link');
+
+  function onLinkClick(e) {
+    var $el = $(e.currentTarget);
+    var elementClick = $el.attr('href');
+    var destination = $(elementClick).offset().top - 50;
+    $('html, body').animate({
+      scrollTop: destination
+    }, 400);
+  }
+
+  $linkPayment.on('click', onLinkClick);
+  $linkAbout.on('click', onLinkClick);
+})();
+
+(function () {
   var $btns = $('.device-chars__square-btn');
   $btns.click(function () {
-    console.log('click');
-
     if (!$(this).hasClass('active')) {
       $btns.removeClass('active');
       $(this).addClass('active');
@@ -106,39 +121,59 @@
 
   ;
 
+  function getPossibleTopPosition($el) {
+    return getTopPosition($el) - $el.outerHeight() - 50;
+  }
+
   function getBottomPosition($el) {
-    return window.scrollY + $(window).height() - $el.offset().top - $el.height();
+    return window.scrollY + $(window).outerHeight() - $el.offset().top - $el.outerHeight();
+  }
+
+  function getPossibleBottomPosition($el) {
+    return getBottomPosition($el) - $el.outerHeight() - 50;
+  }
+
+  function setTooltipPosition() {
+    $('.tooltip.js-show').each(function () {
+      if (getTopPosition($(this)) < 0 && getPossibleBottomPosition($(this)) > 0) {
+        $(this).removeClass('top');
+        $(this).addClass('bottom');
+      }
+
+      if (getBottomPosition($(this)) < 0 && getPossibleTopPosition($(this)) > 0) {
+        $(this).removeClass('bottom');
+        $(this).addClass('top');
+      }
+    });
   }
 
   $aboutBtn.on('click', function () {
     $(this).next().addClass('js-show');
-    $('.tooltip.js-show').each(function () {
-      if (getTopPosition($(this)) < 0) {
-        $(this).removeClass('top');
-        $(this).addClass('bottom');
-      }
-
-      if (getBottomPosition($(this)) < 0) {
-        $(this).removeClass('bottom');
-        $(this).addClass('top');
-      }
-    });
+    $('.tooltip__blackout').addClass('js-show');
+    $('body').addClass('js__body-no-scroll-mobile');
+    setTooltipPosition();
   });
   $close.on('click', function () {
-    $(this).parent().removeClass('js-show');
+    var $tooltip = $(this).parent();
+    $tooltip.removeClass('js-show');
+    setTimeout(function () {
+      $tooltip.removeClass('bottom top');
+    }, 300);
+    $('.tooltip__blackout').removeClass('js-show');
+    $('body').removeClass('js__body-no-scroll-mobile');
+  });
+  $('.tooltip__blackout').on('click', function () {
+    $(this).removeClass('js-show');
+    $('.tooltip.js-show').removeClass('js-show');
   });
   $(window).on('scroll', function () {
-    $('.tooltip.js-show').each(function () {
-      if (getTopPosition($(this)) < 0) {
-        $(this).removeClass('top');
-        $(this).addClass('bottom');
-      }
-
-      if (getBottomPosition($(this)) < 0) {
-        $(this).removeClass('bottom');
-        $(this).addClass('top');
-      }
-    });
+    setTooltipPosition();
   });
-  console.log($aboutBtn);
+  $(document).on('mouseup', function (e) {
+    var $target = $(e.target);
+
+    if (!$target.is('.tooltip') && $target.parents('.tooltip').length === 0 && !$target.is('.device-details__about-btn')) {
+      $('.tooltip.js-show').removeClass('js-show');
+    }
+  });
 })();
