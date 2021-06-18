@@ -5520,6 +5520,9 @@ div.input-file__file-load {
 
 .gallery__slider-container {
   margin: 0 15px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .gallery .swiper-slide {
